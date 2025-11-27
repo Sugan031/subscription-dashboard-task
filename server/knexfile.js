@@ -1,33 +1,61 @@
-require('dotenv').config();
+// Update with your config settings.
 
+/**
+ * @type { Object.<string, import("knex").Knex.Config> }
+ */
 module.exports = {
+
   development: {
     client: 'pg',
-    connection: process.env.DATABASE_URL || {
-      host: process.env.DB_HOST || 'localhost',
-      port: process.env.DB_PORT || 5432,
-      database: process.env.DB_NAME || 'subscription_db',
-      user: process.env.DB_USER || 'postgres',
-      password: process.env.DB_PASSWORD || 'password'
+    connection: {
+      host: '127.0.0.1',
+      database: 'subscription_db',
+      user:     'root',
+      password: 'root'
+    },
+    pool: {
+      min: 2,
+      max: 10
     },
     migrations: {
-      directory: './db/migrations',
-      tableName: 'knex_migrations'
+      tableName: 'knex_migrations',
+      directory: './db/migrations'
     },
     seeds: {
       directory: './db/seeds'
     }
   },
 
-  production: {
-    client: 'pg',
-    connection: process.env.DATABASE_URL,
-    migrations: {
-      directory: './db/migrations',
-      tableName: 'knex_migrations'
+  staging: {
+    client: 'postgresql',
+    connection: {
+      database: 'subscription_db',
+      user:     'root',
+      password: 'root'
     },
-    seeds: {
-      directory: './db/seeds'
+    pool: {
+      min: 2,
+      max: 10
+    },
+    migrations: {
+      tableName: 'knex_migrations'
+    }
+  },
+
+  production: {
+    client: 'postgresql',
+    connection: {
+      database: 'my_db',
+      user:     'username',
+      password: 'password'
+    },
+    pool: {
+      min: 2,
+      max: 10
+    },
+    migrations: {
+      tableName: 'knex_migrations'
     }
   }
+
 };
