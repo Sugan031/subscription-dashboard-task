@@ -1,3 +1,14 @@
+## About The Project
+
+Full-Stack Subscription Management Platform | React, Node.js, Express, PostgreSQL, JWT, Tailwind CSS
+
+
+Built responsive frontend with React 19, Tailwind CSS gradient themes, Zustand state management, React Router protected routes, and Axios for API integration with real-time subscription tracking
+
+Developed secure Node.js/Express RESTful API with JWT authentication, bcrypt password encryption, Joi validation middleware, CORS configuration, and role-based authorization
+
+Architected PostgreSQL database with Knex.js migrations, foreign key relationships, complex join queries for analytics, and normalized schema ensuring data integrity
+
 # Setup Instructions - Node.js Upgrade Required
 
 ## Issue
